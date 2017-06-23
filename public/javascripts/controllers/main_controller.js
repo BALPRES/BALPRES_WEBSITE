@@ -5,7 +5,7 @@ var app = angular.module( 'BALPRES_WEBSITE', [ 'ngRoute', 'ngCookies', 'ngMateri
                 templateUrl : '../index.html'
             })
             .otherwise({
-                redirectTo : '/404'
+                redirectTo : '/'
             });
     }])
     .controller( 'navbar-controller', [ '$scope', '$anchorScroll', '$location', '$rootScope', function( $scope, $anchorScroll, $location, $rootScope ) {
