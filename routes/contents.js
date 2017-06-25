@@ -24,6 +24,7 @@ router.get( '/ourcompanycontent', jsonParser, function( req, res ) {
             }
         },
         function( error, response, body ) {
+            console.log(response);
             if( response ) {
                 switch (response.statusCode) {
                     case 200:
@@ -34,8 +35,16 @@ router.get( '/ourcompanycontent', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -73,8 +82,16 @@ router.get( '/ourservicescontent', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -112,8 +129,16 @@ router.get( '/recomendations', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -151,8 +176,16 @@ router.get( '/ourpersonalcontent', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -190,8 +223,16 @@ router.get( '/ourproductscontent', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -229,8 +270,16 @@ router.get( '/ticketprices', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
+                    case 400:
+                        var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
                     default:
-                        var data_from_server = encryption_system.decryptJSON( body );
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
@@ -268,8 +317,16 @@ router.post( '/contact', jsonParser, function( req, res ) {
                         });
                         res.send( jsonData );
                         break;
-                    default:
+                    case 400:
                         var data_from_server = encryption_system.decryptLongJSON( body );
+                        var jsonData = JSON.stringify({
+                            error : true,
+                            message : data_from_server
+                        });
+                        res.send( jsonData );
+                        break;
+                    default:
+                        var data_from_server = body;
                         var jsonData = JSON.stringify({
                             error : true,
                             message : data_from_server
