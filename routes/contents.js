@@ -24,7 +24,6 @@ router.get( '/ourcompanycontent', jsonParser, function( req, res ) {
             }
         },
         function( error, response, body ) {
-            console.log(response);
             if( response ) {
                 switch (response.statusCode) {
                     case 200:
